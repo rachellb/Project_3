@@ -1,9 +1,15 @@
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
 	
-	private LocalDateTime lt; //Makes a LocalDateTime object
+	private LocalDateTime lt; //Variable for LocalDateTime object
+	private LocalDateTime GMT; //Variable for GMT time object
+	private LocalDateTime BST; //Variable for BST time object
+	private static HashMap<String, String> TIME_ZONES;
+	
 	
 	public DateTimeOne() {
 		lt = LocalDateTime.now(); //Initializes lt to the current datetime
@@ -32,15 +38,15 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 
 	public void dateTimeOfOtherCity() {
 		// TODO: Generate HashMap of Time zones in other cities, print output?
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm"); //Check that this is true
-		String formatDateTime = lt.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm"); //Formats given time into HH:mm style
+		String formatDateTime = lt.format(formatter); 
 		System.out.println("Time on Server: " + formatDateTime);
 		
-		LocalDateTime GMT = lt.plusHours(5); //Add 5 hours to server time for GMT
-		formatDateTime = GMT.format(formatter);
+		GMT = lt.plusHours(5); //Add 5 hours to server time for GMT
+		formatDateTime = GMT.format(formatter); 
 		System.out.println("GMT: " + formatDateTime);
 		
-		LocalDateTime BST = GMT.plusHours(6); //Add 6 hours for to GMT for BST
+		BST = GMT.plusHours(6); //Add 6 hours for to GMT for BST
 		formatDateTime = BST.format(formatter);
 		System.out.println("BST (90E): " + formatDateTime);
 		
@@ -51,6 +57,18 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 
 	public void dateTimeDifferentZone() {
 		// TODO: Generate HashMap of the time as it would be in other time zones
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy HH:mm"); //Formats given time 
+		String formatDateTime = lt.format(formatter); 
+		String formatDateTimeGMT = GMT.format(formatter); 
+		String formatDateTimeBST = BST.format(formatter);
+		
+		TIME_ZONES.put("GMT", formatDateTime); 
+		TIME_ZONES.put("BST", formatDateTimeGMT);
+		TIME_ZONES.put("CST", formatDateTimeBST);
+		
+		for (Entry<String, String> entry : TIME_ZONES.entrySet()) { //Prints the contents of the TIME_ZONES HashMap
+		    System.out.println(entry.getKey()+": "+entry.getValue());
+		}
 	}
 
 	public void timeZoneHashMap() {
