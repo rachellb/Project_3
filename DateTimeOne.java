@@ -8,8 +8,10 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	private LocalDateTime lt; //Variable for LocalDateTime object
 	private LocalDateTime GMT; //Variable for GMT time object
 	private LocalDateTime BST; //Variable for BST time object
+	private LocalDateTime ZST; //Variable for BST time object
+	private LocalDateTime AST; //Variable for BST time object
 	private static HashMap<String, String> TIME_ZONES;
-	
+	private static HashMap<String, String> TIME_ZONES2;
 	
 	public DateTimeOne() {
 		lt = LocalDateTime.now(); //Initializes lt to the current datetime
@@ -72,8 +74,27 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	}
 
 	public void timeZoneHashMap() {
-		// TODO: Add two more time zones, then print the time zones in 3 different
-		// styles
+		// TODO: Add two more time zones, then print the time zones in 3 different styles
+		ZST = lt.plusHours(4);
+		AST = lt.plusHours(4);
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyy HH:mm"); //Formats given time 
+		String formatDateTimeZST = ZST.format(formatter); 
+		String formatDateTimeAST = AST.format(formatter); 
+		
+		TIME_ZONES.put("ZST", formatDateTimeZST);
+		TIME_ZONES.put("AST", formatDateTimeAST);
+		
+		
+		TIME_ZONES2 = new HashMap<String, String>(); //Initializing second HashMap
+		
+		for (Entry<String, String> entry : TIME_ZONES.entrySet()) { 
+			TIME_ZONES2.put(entry.getKey(), entry.getValue()); //Storing values of first HashMap as keys of Second HashMap. What are the values here?
+		}
+		
+		LocalDateTime sort[] = new LocalDateTime[5];
+		
+		
 	}
 
 }
