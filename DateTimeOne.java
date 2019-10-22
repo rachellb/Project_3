@@ -32,6 +32,20 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 
 	public void dateTimeOfOtherCity() {
 		// TODO: Generate HashMap of Time zones in other cities, print output?
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm"); //Check that this is true
+		String formatDateTime = lt.format(formatter);
+		System.out.println("Time on Server: " + formatDateTime);
+		
+		LocalDateTime GMT = lt.plusHours(5); //Add 5 hours to server time for GMT
+		formatDateTime = GMT.format(formatter);
+		System.out.println("GMT: " + formatDateTime);
+		
+		LocalDateTime BST = GMT.plusHours(6); //Add 6 hours for to GMT for BST
+		formatDateTime = BST.format(formatter);
+		System.out.println("BST (90E): " + formatDateTime);
+		
+		formatDateTime = lt.format(formatter); //Keep the server time for CST 
+		System.out.println("CST (90W): " + formatDateTime);
 		
 	}
 
