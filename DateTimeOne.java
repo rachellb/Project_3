@@ -1,4 +1,5 @@
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
 	
@@ -9,7 +10,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	}
 
 	public int getValueOfSecond() {
-		// TODO: Return the current time (the seconds part) on the computer
+		//Return the current time (the seconds part) on the computer
 		return lt.getSecond();
 	}
 
@@ -21,8 +22,12 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		}
 	}
 
-	public String dateTimeNow() {
-		// TODO: Return the date and time currently
+	public void dateTimeNow() {
+		//Return the date and time currently
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a"); //Check that this is true
+		String formatDateTime = lt.format(formatter);
+		String strng = "Current Date/Time: " + formatDateTime;
+		System.out.println(strng);
 	}
 
 	public String dateTimeOfOtherCity() {
