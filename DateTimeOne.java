@@ -1,18 +1,19 @@
-import java.util.concurrent.TimeUnit;
+import java.time.*;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
 	
+	private LocalDateTime lt; //Makes a LocalDateTime object
+	
 	public DateTimeOne() {
-		
+		lt = LocalDateTime.now(); //Initializes lt to the current datetime
 	}
 
 	public int getValueOfSecond() {
 		// TODO: Return the current time (the seconds part) on the computer
-		
+		return lt.getSecond();
 	}
 
 	public void sleepForFiveSec(){
-		// TODO: Sleep program for 5 seconds?
 		try {
 		    Thread.sleep(5 * 1000);
 		} catch (InterruptedException ie) {
