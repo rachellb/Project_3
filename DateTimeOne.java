@@ -1,12 +1,23 @@
+import java.util.concurrent.TimeUnit;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
+	
+	public DateTimeOne() {
+		
+	}
 
 	public int getValueOfSecond() {
 		// TODO: Return the current time (the seconds part) on the computer
+		
 	}
 
-	public void sleepForFiveSec() {
+	public void sleepForFiveSec(){
 		// TODO: Sleep program for 5 seconds?
+		try {
+		    Thread.sleep(5 * 1000);
+		} catch (InterruptedException ie) {
+		    Thread.currentThread().interrupt();
+		}
 	}
 
 	public String dateTimeNow() {
