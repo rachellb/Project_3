@@ -41,6 +41,7 @@ public class Main {
 		 * only, value should be the current time.
 		 */
 		int valueOfSecondNow = dateTimeOne.getValueOfSecond();
+		System.out.println("The value of Second now: " + valueOfSecondNow);
 		/**
 		 * If vlaueOfSecondNow>55, program will sleep for 5 seconds.
 		 */
