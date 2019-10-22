@@ -24,21 +24,22 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 
 	public void dateTimeNow() {
 		//Return the date and time currently
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a"); //Check that this is true
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm a"); //Check that this is true
 		String formatDateTime = lt.format(formatter);
 		String strng = "Current Date/Time: " + formatDateTime;
 		System.out.println(strng);
 	}
 
-	public String dateTimeOfOtherCity() {
+	public void dateTimeOfOtherCity() {
 		// TODO: Generate HashMap of Time zones in other cities, print output?
+		
 	}
 
-	public String dateTimeDifferentZone() {
+	public void dateTimeDifferentZone() {
 		// TODO: Generate HashMap of the time as it would be in other time zones
 	}
 
-	public String timeZoneHashMap() {
+	public void timeZoneHashMap() {
 		// TODO: Add two more time zones, then print the time zones in 3 different
 		// styles
 	}
